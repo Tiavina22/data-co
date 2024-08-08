@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrôle des Données Mobiles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f4f4;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .status {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contrôle des Données Mobiles</h1>
+    <button onclick="sendRequest('/enable-data')">Activer les Données Mobiles</button>
+    <button onclick="sendRequest('/disable-data')">Désactiver les Données Mobiles</button>
+    <div id="status" class="status"></div>
+
+    <script>
+        function sendRequest(endpoint) {
+            fetch(endpoint)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('status').innerText = data;
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                    document.getElementById('status').innerText = 'Erreur lors de la demande';
+                });
+        }
+    </script>
+</body>
+</html>
