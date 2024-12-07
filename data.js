@@ -37,6 +37,8 @@ app.get('/disable-data', (req, res) => {
     });
 });
 
+// Get data mobile implémentation 
+
 app.listen(port, () => {
     console.log(`Serveur en écoute sur http://localhost:${port}`);
 });
